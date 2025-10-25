@@ -3,7 +3,7 @@
 # ? Importing flask extensions
 from flask import current_app
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate, migrate
+from flask_migrate import Migrate, upgrade
 from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
 from authlib.integrations.flask_client import OAuth
 
@@ -52,9 +52,14 @@ google = oauth.register(
     server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
 )
 
+# * FUNCTION TO MIGRATE DB
+def migrate_db(server):
+    with server.app_context():
+        upgrade()
+
 # | User database model
 class User(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     google_id = db.Column(db.String)
     github_id = db.Column(db.String)
     pic = db.Column(db.String)

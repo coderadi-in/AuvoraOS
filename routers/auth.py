@@ -34,13 +34,13 @@ def google_authorize():
         # Check for email in token
         if (not user_info.get('email')):
             flash('Google login failed: No email provided', 'error')
-            return redirect(url_for('router.index#signup'))
+            return redirect(url_for('router.index'))
         
         # Update user in db
         user = User.query.filter_by(email=user_info['email']).first()
         if (not user):
             user = User(
-                googleid=user_info.get('sub'),
+                google_id=user_info.get('sub'),
                 name=user_info.get('name', 'User'),
                 email=user_info['email'],
                 pic=user_info['picture']
@@ -49,17 +49,18 @@ def google_authorize():
             db.session.commit()
 
         else:
-            if not user.googleid:
-                user.googleid = user_info.get('sub')
+            if not user.google_id:
+                user.google_id = user_info.get('sub')
 
         # Login user and redirect to dashboard
         login_user(user)
         flash('Logged in successfully with Google.', 'success')
         return redirect(url_for('router.dashboard'))
     
-    except:
+    except Exception as e:
+        print(e)
         flash("Failed to log in with google!", "error")
-        return redirect(url_for('router.index#signup'))
+        return redirect(url_for('router.index'))
 
 # & GITHUB LOGIN ROUTE
 @auth.route('/login/github')
@@ -80,7 +81,7 @@ def github_authorize():
         primary_email = next((e['email'] for e in emails if e['primary']), None)
 
         # Check if user exists in DB
-        user = User.query.filter_by(github_id=user_info['id']).first()
+        user = User.query.filter_by(email=primary_email).first()
         if (not user):
             user = User(
                 github_id=user_info['id'],
@@ -96,12 +97,13 @@ def github_authorize():
         flash("Logged in successfully with GitHub.", "success")
         return redirect(url_for('router.dashboard'))
 
-    except:
+    except Exception as e:
+        print(e)
         flash("Failed to log in with Github!", 'error')
-        return redirect(url_for('router.index#signup'))
+        return redirect(url_for('router.index'))
 
 # & LOGOUT ROUTE
-@auth.route('/logout')
+@auth.route('/logout/')
 def logout():
     logout_user()
-    return redirect(url_for('router.index#signup'))
+    return redirect(url_for('router.index'))

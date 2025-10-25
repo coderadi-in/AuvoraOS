@@ -195,15 +195,15 @@
             <span class="text">Sign up with any service provider and start using Auvora.</span>
 
             <div class="row gap-20" id="providers">
-                <div class="provider row gap-10" id="google">
+                <a href="{{ url_for('auth.google_login') }}" class="link provider row gap-10" id="google">
                     <img src="{{ url_for('static', filename='assets/icons/common/google.png') }}" alt="Google" class="icon">
                     <span class="text">Continue with Google</span>
-                </div>
+                </a>
                 
-                <div class="provider row gap-10" id="github">
+                <a href="{{ url_for('auth.github_login') }}" class="link provider row gap-10" id="github">
                     <img src="{{ url_for('static', filename='assets/icons/common/github.png') }}" alt="GitHub" class="icon">
                     <span class="text">Continue with GitHub</span>
-                </div>
+                </a>
             </div>
         </section>
     </main>
