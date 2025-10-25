@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>AuvoraOS - The Virtual Operating System for Entrepreneurs</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/icons/logo.png') }}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/index.css') }}">
+</head>
+
+<body class="column gap-20">
+    <header class="header row h-sb">
+        <div class="left row gap-20">
+            <div class="menu-btn column gap-10" id="open-nav">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+            </div>
+
+            <a href="/" class="link row gap-10">
+                <img src="{{ url_for('static', filename='assets/icons/common/os-logo.png') }}" alt="AuvoraOS Logo" class="logo">
+                <h1 class="h1">Auvora</h1>
+            </a>
+        </div>
+
+        <ul class="list row gap-10">
+            <li><a href="#why-auvora" class="link">Why Auvora?</a></li>
+            <li><a href="#features" class="link">Features</a></li>
+            <li><a href="#benefits" class="link">Benefits</a></li>
+            <li><a href="#signup" class="link">Sign Up</a></li>
+        </ul>
+
+        <a href="#signup" class="link btn cta">Get started</a>
+    </header>
+
+    <nav class="nav column gap-20 h-sb">
+        <div class="top row gap-20">
+            <div class="menu-btn column" id="close-nav">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+            </div>
+
+            <a href="/" class="link">
+                <img src="{{ url_for('static', filename='assets/icons/common/os-logo.png') }}" alt="AuvoraOS Logo" class="logo">
+            </a>
+        </div>
+
+        <ul class="list column gap-10">
+            <li><a href="#why-auvora" class="link">Why Auvora?</a></li>
+            <li><a href="#features" class="link">Features</a></li>
+            <li><a href="#benefits" class="link">Benefits</a></li>
+            <li><a href="#signup" class="link">Sign Up</a></li>
+        </ul>
+
+        <a href="#signup" class="link btn">Get started</a>
+    </nav>
+
+    <main class="main column gap-50">
+        <section class="hero column gap-20">
+            <h1 class="h1">Auvora OS</h1>
+            <p class="text">A Virtual Operating System meant for Entrepreneurs</p>
+            <a href="#signup" class="link btn cta">Join the revolution</a>
+        </section>
+
+        <section class="column v-center" id="why-auvora">
+            <div class="content column gap-20 v-center">
+                <h1 class="h1">Why Auvora?</h1>
+                <p class="para">Stop juggling multiple tools. AuvoraOS is the single, unified system to run your entire business. Think of it as the Windows for your business, designed to streamline operations and fuel your growth.</p>
+            </div>
+        </section>
+
+        <section class="column v-center gap-20" id="features">
+            <h1 class="h1">What you can do with Auvora</h1>
+
+            <div class="features-list gap-20">
+                <div class="feature column gap-20">
+                    <div class="icon-content">
+                        <img src="{{ url_for('static', filename='assets/icons/common/desktop.png') }}" alt="Desktop" class="icon">
+                    </div>
+                    
+                    <div class="text-content column">
+                        <h2 class="h2">Virtual desktop</h2>
+                        <span class="text">Access your complete business workspace from any device, anywhere.</span>
+                    </div>
+                </div>
+                
+                <div class="feature column gap-20">
+                    <div class="icon-content">
+                        <img src="{{ url_for('static', filename='assets/icons/common/widgets.png') }}" alt="Desktop" class="icon">
+                    </div>
+
+                    <div class="text-content column">
+                        <h2 class="h2">Customizable widgets</h2>
+                        <span class="text">Tailor your dashboard with widgets that matters most to your business.</span>
+                    </div>
+                </div>
+                
+                <div class="feature column gap-20">
+                    <div class="icon-content">
+                        <img src="{{ url_for('static', filename='assets/icons/common/apps.png') }}" alt="Desktop" class="icon">
+                    </div>
+
+                    <div class="text-content column">
+                        <h2 class="h2">Apps ecosystem</h2>
+                        <span class="text">Levarage powerful integrated apps like, VisualizerIO, BusinessIO, CRM dashboard, sales & analytics, etc.</span>
+                    </div>
+                </div>
+                
+                <div class="feature column gap-20">
+                    <div class="icon-content">
+                        <img src="{{ url_for('static', filename='assets/icons/common/devices.png') }}" alt="Desktop" class="icon">
+                    </div>
+
+                    <div class="text-content column">
+                        <h2 class="h2">Multi-device access</h2>
+                        <span class="text">Seamlessly switch between your laptop, tablet, and smartphone without losing context.</span>
+                    </div>
+                </div>
+                
+                <div class="feature column gap-20">
+                    <div class="icon-content">
+                        <img src="{{ url_for('static', filename='assets/icons/common/layout.png') }}" alt="Desktop" class="icon">
+                    </div>
+
+                    <div class="text-content column">
+                        <h2 class="h2">Personalized layout</h2>
+                        <span class="text">Organize your workspace your way for maximum efficiency and comfort.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="row gap-50 h-sb" id="benefits">
+            <div class="text-content column gap-20">
+                <h1 class="h1">The entrepreneurs' advantage.</h1>
+
+                <div class="benefit column">
+                    <div class="head row gap-10">
+                        <img src="{{ url_for('static', filename='assets/icons/common/growth.png') }}" alt="Growth" class="icon">
+                        <h3 class="h3">Focus on growth</h3>
+                    </div>
+                    <span class="text">With all your tools in one place, you can dedicate your energy to scaling your business, and managing your software.</span>
+                </div>
+
+                <hr class="divider">
+                
+                <div class="benefit column">
+                    <div class="head row gap-10">
+                        <img src="{{ url_for('static', filename='assets/icons/common/efficiency.png') }}" alt="Growth" class="icon">
+                        <h3 class="h3">Operate efficiently</h3>
+                    </div>
+                    <span class="text">Steamline workflow and automate tasks to save time and reduce operational costs, all within your cloud-based system.</span>
+                </div>
+                
+                <hr class="divider">
+                
+                <div class="benefit column">
+                    <div class="head row gap-10">
+                        <img src="{{ url_for('static', filename='assets/icons/common/vision.png') }}" alt="Growth" class="icon">
+                        <h3 class="h3">Visualize progress</h3>
+                    </div>
+                    <span class="text">Gain clear insights in your project, sales, and performance with integrated dashboard and reports.</span>
+                </div>
+                
+                <hr class="divider">
+                
+                <div class="benefit column">
+                    <div class="head row gap-10">
+                        <img src="{{ url_for('static', filename='assets/icons/common/group.png') }}" alt="Growth" class="icon">
+                        <h3 class="h3">Collaborate seamlessly</h3>
+                    </div>
+                    <span class="text">Connect to your team and work together in a shared cloud-based environment, accessible from anywhere.</span>
+                </div>
+            </div>
+
+            <div class="img-content">
+                <img src="{{ url_for('static', filename='assets/icons/common/os-icon.png') }}" alt="Auvora icon" class="img">
+            </div>
+        </section>
+
+        <section class="column v-center">
+            <div class="content column gap-10 v-center" id="our-vision">
+                <h1 class="h1">Our vision</h1>
+                <p class="para">To empower entrepreneurs by providing a single, intuitive, and powerful Virtual operating system that centralizes their tools, steamlines their workflow, and enables them to focus on what truly matters: building and growing their business.</p>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <section class="column gap-10 v-center" id="signup">
+            <h1 class="h1">Be the first to experience Auvora OS</h1>
+            <span class="text">Sign up with any service provider and start using Auvora.</span>
+
+            <div class="row gap-20" id="providers">
+                <div class="provider row gap-10" id="google">
+                    <img src="{{ url_for('static', filename='assets/icons/common/google.png') }}" alt="Google" class="icon">
+                    <span class="text">Continue with Google</span>
+                </div>
+                
+                <div class="provider row gap-10" id="github">
+                    <img src="{{ url_for('static', filename='assets/icons/common/github.png') }}" alt="GitHub" class="icon">
+                    <span class="text">Continue with GitHub</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer row h-sb">
+        <span class="text">2025 &bull; Auvora OS</span>
+        <span class="text">by <a href="https://www.coderadi.in/" class="link u">coderadi</a></span>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/pages/index.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+/* ANIMATIONS */
+@keyframes openNav {
+    to {transform: translateX(0);}
+}
+
+/* BASE */
+body {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.menu-btn {cursor: pointer;}
+.bar {
+    width: 20px;
+    height: 2px;
+    background-color: var(--text);
+    margin: -1px;
+}
+
+/* HEADER */
+.header {padding: 10px;}
+.header .menu-btn {display: none;}
+
+.nav {
+    height: 100dvh;
+    position: fixed;
+    width: 300px;
+    padding: 20px;
+    background-color: #1A1A1DA0;
+    backdrop-filter: blur(5px);
+    transform: translateX(-100%);
+    display: none;
+}
+
+.nav.open {
+    animation: openNav 1.24s linear(0, 0.0114, 0.0427, 0.0898, 0.149, 0.2169, 0.2906, 0.3673, 0.445, 0.5216, 0.5958, 0.6663, 0.7321, 0.7926, 0.8474, 0.8962, 0.9389, 0.9758, 1.0069, 1.0325, 1.053, 1.0689, 1.0805, 1.0884, 1.093, 1.0947, 1.0941, 1.0915, 1.0873, 1.0819, 1.0756, 1.0687, 1.0614, 1.0541, 1.0468, 1.0397, 1.0329, 1.0266, 1.0208, 1.0155, 1.0107, 1.0066, 1.003, 0.9999, 0.9974, 0.9953, 0.9937, 0.9926, 0.9917, 0.9913, 0.991, 0.9911, 0.9913, 0.9916, 0.9921, 0.9927, 0.9934, 0.994, 0.9947, 0.9954, 0.9961, 0.9968, 0.9974, 0.9979, 0.9984, 0.9989, 0.9993, 0.9997, 1, 1.0002, 1.0004, 1.0006, 1.0007, 1.0008, 1.0008, 1.0008, 1.0008, 1.0008, 1.0008, 1.0008, 1.0007, 1.0006, 1.0006, 1.0005, 1.0004, 1.0004, 1.0003, 1.0003, 1.0002, 1.0002, 1.0001, 1.0001, 1, 1, 1, 1, 0.9999, 0.9999, 0.9999, 0.9999, 1) forwards;
+}
+
+.nav .bar {background-color: var(--text-dark);}
+.nav .bar1 {transform: rotate(45deg);}
+.nav .bar2 {transform: rotate(-45deg);}
+.nav .link {color: var(--text-dark);}
+
+/* MAIN */
+.main .hero {
+    background-image: url('/static/assets/images/defualt-os-bg.png');
+    color: var(--background);
+    background-size: cover;
+    justify-content: end;
+    height: 50vh;
+    padding: 50px;
+}
+
+.main .hero .h1 {font-size: 4rem;}
+.main .hero .cta {width: fit-content;}
+
+.main #why-auvora .content {
+    padding: 20px;
+    text-align: center;
+    width: min(100%, 500px);
+}
+
+.main #features {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+    padding: 20px;
+}
+
+.main #features .features-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.main #features .feature {
+    background-color: var(--surface-dark);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.main #features .feature .icon-content {
+    background-color: var(--primary-dark);
+    padding: 20px;
+    border-radius: 50px;
+    width: fit-content;
+}
+
+.main #benefits {
+    background-color: var(--surface-dark);
+    color: var(--text-dark);
+    padding: 20px;
+}
+
+.main #benefits .icon-content {width: max(500px, 50%);}
+
+.main #our-vision {
+    padding: 20px;
+    width: min(100%, 500px);
+    text-align: center;
+}
+
+.main #signup {text-align: center;}
+
+.main #providers .provider {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+/* FOOTER */
+.footer {
+    padding: 20px;
+    background-color: var(--surface-dark);
+    color: var(--text-dark);
+}
+
+.footer .link {color: var(--text-dark);}
+
+/* RESPONSIVENESS */
+@media (max-width: 768px) {
+    .header .menu-btn {display: flex;}
+    .header .list {display: none;}
+
+    .main #features .features-list {grid-template-columns: repeat(2, 1fr);}
+}
+
+@media (max-width: 568px) {
+    .main #features .features-list {grid-template-columns: repeat(1, 1fr);}
+
+    .main #benefits {
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    .main #benefits .text-content {width: 100%;}
+}
+
+@media (max-width: 425px) {
+    .main #providers {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .header .cta {display: none;}
+}

@@ -12,4 +12,4 @@ router = Blueprint('router', __name__)
 def index():
     if (current_user.is_authenticated):
         return redirect(url_for('router.dashboard'))
-    return render_template('index.html')
+    return render_template('pages/index.html')
