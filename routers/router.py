@@ -7,9 +7,14 @@ from extensions import *
 # ! Building base router
 router = Blueprint('router', __name__)
 
-# & Base route
+# & BASE ROUTE
 @router.route('/')
 def index():
     if (current_user.is_authenticated):
         return redirect(url_for('router.dashboard'))
     return render_template('pages/index.html')
+
+# & DASHBOARD ROUTE
+@router.route('/dashboard')
+def dashboard():
+    return render_template('pages/dash.html')
