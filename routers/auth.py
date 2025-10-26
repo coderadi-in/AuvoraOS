@@ -11,6 +11,15 @@ auth = Blueprint('auth', __name__, url_prefix='/auth')
 def check_auth():
     if (current_user.is_authenticated):
         return redirect(url_for('router.dashboard'))
+    
+# * FUNCTION TO SETUP USER
+def setup_user(user: User):
+    ossetup = OSSetup.query.filter_by(user_id=user.id).first()
+    if (not ossetup):
+        new_setup = OSSetup(user_id=user.id)
+        db.session.add(new_setup)
+        db.session.commit()
+    login_user(user)
 
 # & GOOGLE LOGIN ROUTE
 @auth.route('/login/google')
@@ -53,7 +62,7 @@ def google_authorize():
                 user.google_id = user_info.get('sub')
 
         # Login user and redirect to dashboard
-        login_user(user)
+        setup_user(user)
         flash('Logged in successfully with Google.', 'success')
         return redirect(url_for('router.dashboard'))
     
@@ -93,7 +102,7 @@ def github_authorize():
             db.session.commit()
 
         # Login user and redirect to dashboard
-        login_user(user)
+        setup_user(user)
         flash("Logged in successfully with GitHub.", "success")
         return redirect(url_for('router.dashboard'))
 

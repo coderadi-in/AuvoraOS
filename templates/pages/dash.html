@@ -9,7 +9,11 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base/base.css') }}">
 </head>
-<body>
-    <h1 class="h1">OMNIGEL</h1>
+<body class="column">
+    <main class="main">
+        <h1 class="h1">Omnigel</h1>
+    </main>
+
+    {% include 'components/taskbar.html' %}
 </body>
 </html>

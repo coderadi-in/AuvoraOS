@@ -4,11 +4,27 @@
 from flask import current_app
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate, upgrade
-from flask_login import LoginManager, UserMixin, login_user, logout_user, current_user
+from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from authlib.integrations.flask_client import OAuth
 
 # ? Importing libraries
 import os
+
+# & DATASET OF INSTALLED APPS
+installed_apps = [
+    {
+        "app_id": "file_manager",
+        "app_title": "File manager",
+        "app_icon": "/static/assets/icons/apps/file_manager.png",
+        "pinned": True,
+    },
+    {
+        "app_id": "settings",
+        "app_title": "Settings",
+        "app_icon": "/static/assets/icons/apps/settings.png",
+        "pinned": True,
+    },
+]
 
 # ! Building extensions
 db = SQLAlchemy()
@@ -61,3 +77,22 @@ class User(db.Model, UserMixin):
     name = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(20))
+
+# | OS Setup database model
+class OSSetup(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.Integer, unique=True, nullable=False)
+    bg = db.Column(db.String(100))
+    theme = db.Column(db.String(5), default='light')
+    pinned_apps = db.Column(db.JSON, default=lambda: ['settings', 'file_manager'])
+
+# | Installed App database model
+class InstalledApp(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    app_id = db.Column(db.String(50), unique=True, nullable=False)
+    user_id = db.Column(db.Integer)
+    icon = db.Column(db.String(50), nullable=False)
+    title = db.Column(db.String(50), nullable=False)
+    app_data = db.Column(db.Float, default=0.00)
+    system_app = db.Column(db.Boolean, default=False)
+    pinned = db.Column(db.Boolean, default=False)

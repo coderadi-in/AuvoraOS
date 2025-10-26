@@ -16,5 +16,16 @@ def index():
 
 # & DASHBOARD ROUTE
 @router.route('/dashboard')
+@login_required
 def dashboard():
-    return render_template('pages/dash.html')
+    setup = OSSetup.query.filter_by(user_id=current_user.id).first()
+    
+    apps = InstalledApp.query.filter(
+        (InstalledApp.system_app == True) |
+        (InstalledApp.user_id == current_user.id)
+    ).all()
+    
+    return render_template('pages/dash.html', data={
+        'setup': setup,
+        'apps': apps
+    })

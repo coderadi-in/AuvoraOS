@@ -1,0 +1,22 @@
+.taskbar {
+    background-color: var(--surface-dark);
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.taskbar .icon-btn {
+    padding: 0;
+    background-color: transparent;
+}
+
+.taskbar .input {
+    width: max(100%, 25vw);
+    color: var(--text-dark);
+}
+
+.taskbar #options {justify-content: end;}
