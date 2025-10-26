@@ -52,17 +52,12 @@ google = oauth.register(
     server_metadata_url='https://accounts.google.com/.well-known/openid-configuration',
 )
 
-# * FUNCTION TO MIGRATE DB
-def migrate_db(server):
-    with server.app_context():
-        upgrade()
-
 # | User database model
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    google_id = db.Column(db.String)
-    github_id = db.Column(db.String)
-    pic = db.Column(db.String)
+    google_id = db.Column(db.String(50))
+    github_id = db.Column(db.String(50))
+    pic = db.Column(db.String(100))
     name = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(50), unique=True, nullable=False)
     password = db.Column(db.String(20))
