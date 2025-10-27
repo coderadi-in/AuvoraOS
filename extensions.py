@@ -82,9 +82,10 @@ class User(db.Model, UserMixin):
 class OSSetup(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_id = db.Column(db.Integer, unique=True, nullable=False)
-    bg = db.Column(db.String(100))
+    bg = db.Column(db.String(100), default='/static/assets/images/default-os-bg.png')
     theme = db.Column(db.String(5), default='light')
     pinned_apps = db.Column(db.JSON, default=lambda: ['settings', 'file_manager'])
+    storage = db.Column(db.JSON, default=lambda: { 'A://': {} })
 
 # | Installed App database model
 class InstalledApp(db.Model):

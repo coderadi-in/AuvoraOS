@@ -1,0 +1,13 @@
+.popup {
+    background-color: #1A1A1DD0;
+    width: fit-content;
+    position: absolute;
+    padding: 10px;
+    border-radius: 10px;
+    width: max(40%, 300px);
+    margin: 10px;
+    opacity: 0;
+    display: none;
+}
+
+.popup .form {width: 100%;}

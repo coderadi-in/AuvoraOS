@@ -6,7 +6,7 @@
             <img src="{{ url_for('static', filename='assets/icons/common/os-logo.png') }}" alt="Auvora" class="logo">
         </div>
 
-        <input type="search" id="search" placeholder="Type here to search" class="input">
+        <input type="search" id="search" placeholder="Type anything to search" class="input">
     </section>
 
     <div class="row gap-10 task-section center" id="pinned-apps">
@@ -26,4 +26,4 @@
     </section>
 </footer>
 
-<script src="{{ url_for('static', filename='js/components/taskbar.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='js/components/taskbar.js') }}"></script>

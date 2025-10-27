@@ -97,20 +97,30 @@ body {
 .h1 {
     font-size: 36px;
     font-family: "Bebas Neue", sans-serif;
+    color: var(--text);
 }
 
 .h2 {
     font-size: 32px;
     font-family: "Bebas Neue", sans-serif;
+    color: var(--text);
 }
 
 .h3 {
     font-size: 24px;
     font-family: "Bebas Neue", sans-serif;
+    color: var(--text);
 }
 
-.text, .para {font-size: 16px;}
-.mini {font-size: 10px;}
+.text, .para {
+    font-size: 16px;
+    color: var(--text);
+}
+
+.mini {
+    font-size: 10px;
+    color: var(--text);
+}
 
 /* DYNAMICS */
 .btn {
@@ -120,6 +130,24 @@ body {
     border-radius: 5px;
     cursor: pointer;
     border: none;
+}
+
+.folder-btn,
+.app-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.folder-btn .icon-content,
+.app-btn .icon-content {
+    background-color: #1A1A1D;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .icon-btn {
@@ -184,4 +212,34 @@ body {
     background-color: transparent;
     border-radius: 5px;
     padding: 10px;
+}
+
+.icons-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.icons-group .content {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #2C2C31A0;
+    border: 2px solid #2c2c31;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    width: min(100%, 40vw);
+    height: 25vh;
+    overflow-y: auto;
+    scrollbar-color: #1A1A1D transparent;
+    scrollbar-width: thin;
+}
+
+#background-image {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    object-fit: cover;
 }

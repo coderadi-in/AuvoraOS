@@ -1,0 +1,11 @@
+<section class="popup row gap-20" id="new-folder-popup">
+    <div class="icon-content column gap-10">
+        <img src="{{ url_for('static', filename='assets/icons/common/close.png') }}" alt="New folder" class="icon" id="close-new-folder">
+        <img src="{{ url_for('static', filename='assets/icons/common/folder.png') }}" alt="New folder" class="icon">
+    </div>
+
+    <form action="/new/folder/" method="post" class="form column">
+        <h3 class="h3">New folder</h3>
+        <input required type="text" name="folder-name" placeholder="Folder name" class="input">
+    </form>
+</section>

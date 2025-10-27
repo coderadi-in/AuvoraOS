@@ -1,5 +1,5 @@
 // * FUNCTIONALITY to disable/enable certain browser default behaviors
-const BrowserDefaults = (() => {
+export const BrowserDefaults = (() => {
   const prevent = e => e.preventDefault();
   const events = ['contextmenu', 'selectstart', 'dragstart', 'auxclick'];
 
@@ -18,10 +18,14 @@ const BrowserDefaults = (() => {
   function blockKeys(e) {
     const key = e.key.toLowerCase();
     const blocked =
+      e.key === 'F1' ||
+      e.key === 'F3' ||
       e.key === 'F5' ||
+      e.key === 'F7' ||
+      e.key === 'F11' ||
       e.key === 'F12' ||
-      (e.ctrlKey && ['r', 'u', 's', 'p'].includes(key)) ||
-      (e.ctrlKey && e.shiftKey && ['i', 'j', 'c'].includes(key));
+      e.ctrlKey ||
+      e.altKey;
 
     if (blocked) e.preventDefault();
   }
@@ -29,4 +33,20 @@ const BrowserDefaults = (() => {
   return { enable, disable };
 })();
 
-export default BrowserDefaults;
+// * FUNCTION to open popups
+export const openPopup = ((popup) => {
+  popup.style.display = "flex";
+
+  setTimeout(() => {
+    popup.style.opacity = "1";
+  }, 100);
+})
+
+// * FUNCTION to close popups
+export const closePopup = ((popup) => {
+  popup.style.opacity = "0";
+
+  setTimeout(() => {
+    popup.style.display = "none";
+  }, 300);
+})

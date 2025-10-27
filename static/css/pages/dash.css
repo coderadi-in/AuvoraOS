@@ -1,0 +1,16 @@
+body {height: 100vh;}
+
+.main {
+    padding: 50px;
+    height: 100%;
+}
+
+.main .widget {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #1A1A1DA0;
+    border: 2px solid #1A1A1D;
+}
+
+.main #time #current-time,
+.main #time #current-date {font-family: "Inter", sans-serif;}
