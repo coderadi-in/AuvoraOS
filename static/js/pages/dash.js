@@ -1,8 +1,10 @@
 // ? Importing modules
 import { closePopup, openPopup } from "../base/base.js";
+import { vfs } from '../base/vfs.js';
 
 // ? SETTING UP some values
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 const newFolderBtn = document.querySelector('#new-folder');
 const closeNewFolderBtn = document.querySelector("#close-new-folder");
 const newFolderPopup = document.querySelector("#new-folder-popup");
@@ -24,7 +26,7 @@ function updateDate() {
     const now = new Date();
     const day = days[now.getDay()];
     const date = now.getDate();
-    const month = now.getMonth();
+    const month = months[now.getMonth()];
     const year = now.getFullYear();
     const formattedDate = `${day}, ${month} ${date} &bull; ${year}`
     document.querySelector("#current-date").innerHTML = formattedDate;

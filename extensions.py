@@ -85,7 +85,8 @@ class OSSetup(db.Model):
     bg = db.Column(db.String(100), default='/static/assets/images/default-os-bg.png')
     theme = db.Column(db.String(5), default='light')
     pinned_apps = db.Column(db.JSON, default=lambda: ['settings', 'file_manager'])
-    storage = db.Column(db.JSON, default=lambda: { 'A://': {} })
+    root = db.Column(db.JSON, default=lambda: { 'A://': {} })
+    meta = db.Column(db.JSON, default=lambda: {})
 
 # | Installed App database model
 class InstalledApp(db.Model):

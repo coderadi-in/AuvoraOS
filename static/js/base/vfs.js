@@ -89,20 +89,24 @@ class VirtualFileSystem {
     }
 
     // & Save to localStorage
-    save() {
-        localStorage.setItem('AUVORA_VFS', JSON.stringify({
-            root: this.root,
-            meta: this.meta
-        }));
+    async save() {
+        await fetch('/api/save', {
+            method: 'POST',
+            body: {
+                root: this.root,
+                meta: this.meta,
+            }
+        })
     }
 
-    // & Load from localStorage
-    load() {
-        const data = localStorage.getItem('AUVORA_VFS');
+    // & Load from server
+    async load() {
+        const data = await fetch('/api/load');
         if (data) {
-            const parsed = JSON.parse(data);
+            const parsed = await data.json();
             this.root = parsed.root;
             this.meta = parsed.meta;
+            console.log(this.root, this.meta);            
         }
     }
 
