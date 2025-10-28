@@ -27,11 +27,6 @@ def api_load():
     root = setup.root
     meta = setup.meta
 
-    print({
-        'root': root,
-        'meta': meta
-    })
-
     return jsonify({
         'root': root,
         'meta': meta

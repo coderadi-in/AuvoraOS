@@ -4,8 +4,8 @@
         <img src="{{ url_for('static', filename='assets/icons/common/folder.png') }}" alt="New folder" class="icon">
     </div>
 
-    <form action="/new/folder/" method="post" class="form column">
+    <div class="column">
         <h3 class="h3">New folder</h3>
-        <input required type="text" name="folder-name" placeholder="Folder name" class="input">
-    </form>
+        <input type="text" id="folder-name" value="New folder" placeholder="Folder name" class="input">
+    </div>
 </section>

@@ -5,9 +5,6 @@ import { vfs } from '../base/vfs.js';
 // ? SETTING UP some values
 const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
-const newFolderBtn = document.querySelector('#new-folder');
-const closeNewFolderBtn = document.querySelector("#close-new-folder");
-const newFolderPopup = document.querySelector("#new-folder-popup");
 
 // * FUNCTION to update time
 function updateTime() {
@@ -37,15 +34,5 @@ updateTime();
 updateDate();
 
 setInterval(() => {
-        updateTime();
+    updateTime();
 }, 1000);
-
-// & EVENT LISTENER for new-folder button click
-newFolderBtn.addEventListener('click', () => {
-    openPopup(newFolderPopup);
-});
-
-// & EVENT LISTENER for close-new-folder button click
-closeNewFolderBtn.addEventListener('click', () => {
-    closePopup(newFolderPopup);
-})

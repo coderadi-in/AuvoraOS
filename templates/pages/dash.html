@@ -16,6 +16,7 @@
 
 <body class="column dark">
     {% include 'components/newfolder-popup.html' %}
+    {% include 'components/context.html' %}
 
     <main class="main column h-sb">
         <img src="{{ data.setup.bg }}" alt="Can't render background-image" class="img" id="background-image">
@@ -34,14 +35,7 @@
             </section>
 
             <section class="icons-group" id="folders">
-                <div class="content">
-                    <button class="folder-btn" id="new-folder">
-                        <div class="icon-content"><img
-                                src="{{ url_for('static', filename='assets/icons/common/new-folder.png') }}"
-                                alt="New folder" class="icon"></div>
-                        <span class="text">Create new</span>
-                    </button>
-                </div>
+                <div class="content"></div>
                 <span class="text">Folders</span>
             </section>
         </section>

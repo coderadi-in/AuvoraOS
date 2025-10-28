@@ -1,0 +1,21 @@
+<style>
+    #main-context-menu {
+        width: fit-content;
+        cursor: pointer;
+    }
+</style>
+
+<section class="popup column gap-10" id="main-context-menu">
+    <span class="text" id="refresh">Refresh</span>
+    <span class="text" id="settnigs">Settings</span>
+    <hr class="divider">
+    <span class="mini">New</span>
+    <span class="text" id="folder">New folder</span>
+    <span class="text" id="text">New text document</span>
+    <hr class="divider">
+    <span class="mini">Customization</span>
+    <span class="text" id="display-settings">Display settings</span>
+    <span class="text" id="account">Your account</span>
+</section>
+
+<script type="module" src="{{ url_for('static', filename='js/components/context.js') }}"></script>
